@@ -20,8 +20,8 @@ body{
 }
 
 
-#Point,#Shooting,#Small,#Power,#Center{
-    height: 200px;
+.Point,.Shooting,.Small,.Power,.Center{
+    height: 260px;
     width: 200px;
     background-color:rgb(201, 192, 192);
     border-radius: 5px;
@@ -31,12 +31,21 @@ body{
 
 }
 
+.Point:hover,.Shooting:hover,.Small:hover,.Power:hover,.Center:hover{
+    background-color: white;
+    border: 1px solid black;
+}
+
 .cubs{
     display: flex;
     padding: 8px;
     gap: 9px;
     margin-left: 15%;
     
+}
+
+#Center,#Point,#Shooting,#Small,#Power{
+    color: blue;
 }
 
 .textIncube{
@@ -60,7 +69,7 @@ body{
 
 .bottmPage{ 
     align-items: center; 
-    height: 50vh;
+    height:auto;
     background-color:rgb(201, 192, 192);
     width: 70%;
     margin-left: 15%;  
@@ -99,11 +108,23 @@ body{
 .head{
     border: 1px solid white; 
     height: 30px;
-    background-color: rgb(230, 72, 72);
+    background-color:red
 
 }
 
 .prm{
     border: 1px solid white; 
 
+}
+
+.buttonDisplay{
+    background-color: blue;
+    color: white;
+    height: 50px;
+    width: 150px;
+    border-radius: 5px;
+}
+
+.buttonDisplay:hover{
+    background-color: rgb(36, 121, 163);
 }
