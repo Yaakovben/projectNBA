@@ -49,9 +49,15 @@
                 <option value="PF" >PF</option>
                 <option value="C" >C</option>
             </select>
-            <input type="range" class="points" value="10">
-            <input type="range" class="three">
-            <input type="range" class="tow">
+
+            
+
+            <input type="range" class="points" value="0" max="100" oninput="num.value = this.value">
+            <output id="num">0</output>
+            <input type="range" class="three" value="0" max="100" oninput="nu.value = this.value">
+            <output id="nu">0</output>
+            <input type="range" class="tow"  value="0" max="100" oninput="n.value = this.value">
+            <output id="n">0</output>
             <button class="Search">Search Player</button>
         </div>
         <div>

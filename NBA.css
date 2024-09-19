@@ -32,7 +32,7 @@ body{
 }
 
 .Point:hover,.Shooting:hover,.Small:hover,.Power:hover,.Center:hover{
-    background-color: white;
+    background-color: rgb(238, 228, 228);
     border: 1px solid black;
 }
 
@@ -50,6 +50,7 @@ body{
 
 .textIncube{
    text-align: center;
+   display: flex;
 }
 
 .centerPage{
@@ -73,6 +74,7 @@ body{
     background-color:rgb(201, 192, 192);
     width: 70%;
     margin-left: 15%;  
+    border-radius: 5px;
 }
 
 
@@ -83,10 +85,13 @@ body{
     align-items: center;
     justify-content: center;
     
+    
 }
 
 .select{
     width: 400px;
+    border-radius: 5px;
+    height: 30px;
     border-radius: 5px;
 }
 .Search{
@@ -102,6 +107,7 @@ body{
     text-align: center;
     border: 1px solid white; 
     margin-left: 10%;
+    overflow: auto;
 }
 
 
@@ -112,10 +118,7 @@ body{
 
 }
 
-.prm{
-    border: 1px solid white; 
 
-}
 
 .buttonDisplay{
     background-color: blue;
@@ -128,3 +131,8 @@ body{
 .buttonDisplay:hover{
     background-color: rgb(36, 121, 163);
 }
+
+
+
+
+

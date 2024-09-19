@@ -1,12 +1,11 @@
 const BASE_URL: string = "https://nbaserver-q21u.onrender.com/api/filter"
-
+// תפיסת
 const position: HTMLSelectElement = document.querySelector('select')!
 const twoPercent: HTMLSelectElement = document.querySelector('.tow')!
 const threePercent: HTMLSelectElement = document.querySelector('.three')!
 const points: HTMLSelectElement = document.querySelector('.points')!
 const Search: HTMLSelectElement = document.querySelector('.Search')!
 const Table: HTMLSelectElement = document.querySelector('.Table')!
-//
 const Point: HTMLSelectElement = document.querySelector('.Point')!
 const Shooting: HTMLSelectElement = document.querySelector('.Shooting')!
 const Small: HTMLSelectElement = document.querySelector('.Small')!
@@ -19,7 +18,7 @@ const Center: HTMLSelectElement = document.querySelector('.Center')!
 
 
 
-
+// קבלת השחקנים מהשרת
 const addPlayer = async():Promise<void> => {
     try{
         const res: Response = await fetch(BASE_URL, {
@@ -37,23 +36,22 @@ const addPlayer = async():Promise<void> => {
         const players:Nba[] = await res.json()
         console.log(players);
         for(const player of players){
-            displayPlayer(player)
-               
+            // קריאה לפןנקצייה שמדפיסה תשחקנים בטבלה
+            displayPlayer(player)       
         }
-        
-
     }catch(err){
-        console.log(err);
-        
+        console.log(err); 
     }
 }
 
 
+// פונקציית הדפסת השחקנים בטבלה
  const displayPlayer = async(player:Nba):Promise<void> =>{
-
+    // קריאה לפונקצייה שמנקה את הטבלה
+    await deleteTable()
     // יצירת שורה
     let newRow = document.createElement("tr");
-    newRow.classList.add("prm");
+    newRow.classList.add("delete")
     // יצירת אברים שיוצגו בשורה
     let td1: HTMLElement  = document.createElement("td");
     let td2: HTMLElement  = document.createElement("td");
@@ -62,8 +60,8 @@ const addPlayer = async():Promise<void> => {
     let td5: HTMLElement  = document.createElement("td");
     let td6: HTMLElement  = document.createElement("td");
     let button: HTMLElement  = document.createElement("button")
-    button.classList.add("buttonDisplay")
-   
+    button.classList.add("buttonDisplay") 
+    // האזנה לכפתור הטבלה
     button.addEventListener("click",() => displayOnCubse(player))
     td1.textContent = player.playerName
     td2.textContent = player.position
@@ -78,17 +76,14 @@ const addPlayer = async():Promise<void> => {
     newRow.appendChild(td4)
     newRow.appendChild(td5)
     newRow.appendChild(button)
+    newRow.classList.add("rew");
     Table.appendChild(newRow)
  }
 
-
-
-
-
-
-//
+// האזנה לכפור חיפוש שחקנים
 Search.addEventListener("click",addPlayer )
 
+// הדפסת השחקן הספציפי בקוביות שבראש העמוד
 const displayOnCubse = (player:Nba):void =>{
     let title: HTMLElement  = document.createElement("h3");
     title.style.color = "blue"
@@ -100,9 +95,6 @@ const displayOnCubse = (player:Nba):void =>{
     three.textContent = ` Three Precents: ${player.threePercent.toString()}%`
     two.textContent = `Tow Precents: ${player.twoPercent.toString()}%`
     points.textContent = `points: ${player.points.toString()}`
-
-
-
     switch(player.position){
         case "PG":{
             Point.innerHTML = ""
@@ -156,7 +148,14 @@ const displayOnCubse = (player:Nba):void =>{
     }  
 }
 
+}
 
+// פונקציית ניקוי הטבלה
+const deleteTable = ():void =>{
+    const allRew = document.querySelectorAll(".delete")
+    for(const rew of allRew){
+        rew.remove()
+    }
 }
 
 

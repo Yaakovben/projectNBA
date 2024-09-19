@@ -9,18 +9,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const BASE_URL = "https://nbaserver-q21u.onrender.com/api/filter";
+// תפיסת
 const position = document.querySelector('select');
 const twoPercent = document.querySelector('.tow');
 const threePercent = document.querySelector('.three');
 const points = document.querySelector('.points');
 const Search = document.querySelector('.Search');
 const Table = document.querySelector('.Table');
-//
 const Point = document.querySelector('.Point');
 const Shooting = document.querySelector('.Shooting');
 const Small = document.querySelector('.Small');
 const Power = document.querySelector('.Power');
 const Center = document.querySelector('.Center');
+// קבלת השחקנים מהשרת
 const addPlayer = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const res = yield fetch(BASE_URL, {
@@ -38,6 +39,7 @@ const addPlayer = () => __awaiter(void 0, void 0, void 0, function* () {
         const players = yield res.json();
         console.log(players);
         for (const player of players) {
+            // קריאה לפןנקצייה שמדפיסה תשחקנים בטבלה
             displayPlayer(player);
         }
     }
@@ -45,10 +47,13 @@ const addPlayer = () => __awaiter(void 0, void 0, void 0, function* () {
         console.log(err);
     }
 });
+// פונקציית הדפסת השחקנים בטבלה
 const displayPlayer = (player) => __awaiter(void 0, void 0, void 0, function* () {
+    // קריאה לפונקצייה שמנקה את הטבלה
+    yield deleteTable();
     // יצירת שורה
     let newRow = document.createElement("tr");
-    newRow.classList.add("prm");
+    newRow.classList.add("delete");
     // יצירת אברים שיוצגו בשורה
     let td1 = document.createElement("td");
     let td2 = document.createElement("td");
@@ -58,6 +63,7 @@ const displayPlayer = (player) => __awaiter(void 0, void 0, void 0, function* ()
     let td6 = document.createElement("td");
     let button = document.createElement("button");
     button.classList.add("buttonDisplay");
+    // האזנה לכפתור הטבלה
     button.addEventListener("click", () => displayOnCubse(player));
     td1.textContent = player.playerName;
     td2.textContent = player.position;
@@ -72,10 +78,12 @@ const displayPlayer = (player) => __awaiter(void 0, void 0, void 0, function* ()
     newRow.appendChild(td4);
     newRow.appendChild(td5);
     newRow.appendChild(button);
+    newRow.classList.add("rew");
     Table.appendChild(newRow);
 });
-//
+// האזנה לכפור חיפוש שחקנים
 Search.addEventListener("click", addPlayer);
+// הדפסת השחקן הספציפי בקוביות שבראש העמוד
 const displayOnCubse = (player) => {
     let title = document.createElement("h3");
     title.style.color = "blue";
@@ -138,5 +146,12 @@ const displayOnCubse = (player) => {
             Center.appendChild(points);
             break;
         }
+    }
+};
+// פונקציית ניקוי הטבלה
+const deleteTable = () => {
+    const allRew = document.querySelectorAll(".delete");
+    for (const rew of allRew) {
+        rew.remove();
     }
 };
