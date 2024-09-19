@@ -12,7 +12,7 @@ body{
 .title1{
     width: 100%;
     background-color: blue;
-    height: 4vh;
+    height: 5vh;
     color:white;
 }
 #title1{
@@ -28,6 +28,8 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    box-shadow: 0 3px 12px blue
+   
 
 }
 
@@ -132,6 +134,24 @@ body{
     background-color: rgb(36, 121, 163);
 }
 
+td {
+    border: 1px solid white; 
+    padding: 5px; 
+}
+
+.Search:hover{
+    background: rgb(1, 57, 85);
+    border-radius: 2px;
+}
+.delete{
+    border: 1px solid white; 
+    padding: 5px; 
+
+}
+
+.points,.three,.tow{
+    width: 35%;
+}
 
 
 

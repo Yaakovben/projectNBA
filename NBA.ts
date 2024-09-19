@@ -1,5 +1,5 @@
+//תפיסת אלמנטים
 const BASE_URL: string = "https://nbaserver-q21u.onrender.com/api/filter"
-// תפיסת
 const position: HTMLSelectElement = document.querySelector('select')!
 const twoPercent: HTMLSelectElement = document.querySelector('.tow')!
 const threePercent: HTMLSelectElement = document.querySelector('.three')!
@@ -11,13 +11,6 @@ const Shooting: HTMLSelectElement = document.querySelector('.Shooting')!
 const Small: HTMLSelectElement = document.querySelector('.Small')!
 const Power: HTMLSelectElement = document.querySelector('.Power')!
 const Center: HTMLSelectElement = document.querySelector('.Center')!
-
-
-
-
-
-
-
 // קבלת השחקנים מהשרת
 const addPlayer = async():Promise<void> => {
     try{
@@ -36,15 +29,13 @@ const addPlayer = async():Promise<void> => {
         const players:Nba[] = await res.json()
         console.log(players);
         for(const player of players){
-            // קריאה לפןנקצייה שמדפיסה תשחקנים בטבלה
+            // קריאה לפונקצייה שמדפיסה תשחקנים בטבלה
             displayPlayer(player)       
         }
     }catch(err){
         console.log(err); 
     }
 }
-
-
 // פונקציית הדפסת השחקנים בטבלה
  const displayPlayer = async(player:Nba):Promise<void> =>{
     // קריאה לפונקצייה שמנקה את הטבלה
@@ -75,14 +66,12 @@ const addPlayer = async():Promise<void> => {
     newRow.appendChild(td3)
     newRow.appendChild(td4)
     newRow.appendChild(td5)
-    newRow.appendChild(button)
+    newRow.appendChild(td6)
     newRow.classList.add("rew");
     Table.appendChild(newRow)
  }
-
 // האזנה לכפור חיפוש שחקנים
 Search.addEventListener("click",addPlayer )
-
 // הדפסת השחקן הספציפי בקוביות שבראש העמוד
 const displayOnCubse = (player:Nba):void =>{
     let title: HTMLElement  = document.createElement("h3");
@@ -95,6 +84,7 @@ const displayOnCubse = (player:Nba):void =>{
     three.textContent = ` Three Precents: ${player.threePercent.toString()}%`
     two.textContent = `Tow Precents: ${player.twoPercent.toString()}%`
     points.textContent = `points: ${player.points.toString()}`
+    // בדיקה איזה שחקן מתאים לאיזה קופסה 
     switch(player.position){
         case "PG":{
             Point.innerHTML = ""
@@ -147,9 +137,7 @@ const displayOnCubse = (player:Nba):void =>{
         break;
     }  
 }
-
 }
-
 // פונקציית ניקוי הטבלה
 const deleteTable = ():void =>{
     const allRew = document.querySelectorAll(".delete")
@@ -158,16 +146,7 @@ const deleteTable = ():void =>{
     }
 }
 
-
-
- 
-
-
-
-
-
-
-
+// שנדע מה אנו צפויים לקבל interfice הגדרת 
 interface Nba {
     position:string,
     twoPercent:number,

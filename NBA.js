@@ -8,8 +8,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+//תפיסת אלמנטים
 const BASE_URL = "https://nbaserver-q21u.onrender.com/api/filter";
-// תפיסת
 const position = document.querySelector('select');
 const twoPercent = document.querySelector('.tow');
 const threePercent = document.querySelector('.three');
@@ -39,7 +39,7 @@ const addPlayer = () => __awaiter(void 0, void 0, void 0, function* () {
         const players = yield res.json();
         console.log(players);
         for (const player of players) {
-            // קריאה לפןנקצייה שמדפיסה תשחקנים בטבלה
+            // קריאה לפונקצייה שמדפיסה תשחקנים בטבלה
             displayPlayer(player);
         }
     }
@@ -77,7 +77,7 @@ const displayPlayer = (player) => __awaiter(void 0, void 0, void 0, function* ()
     newRow.appendChild(td3);
     newRow.appendChild(td4);
     newRow.appendChild(td5);
-    newRow.appendChild(button);
+    newRow.appendChild(td6);
     newRow.classList.add("rew");
     Table.appendChild(newRow);
 });
@@ -95,6 +95,7 @@ const displayOnCubse = (player) => {
     three.textContent = ` Three Precents: ${player.threePercent.toString()}%`;
     two.textContent = `Tow Precents: ${player.twoPercent.toString()}%`;
     points.textContent = `points: ${player.points.toString()}`;
+    // בדיקה איזה שחקן מתאים לאיזה קופסה 
     switch (player.position) {
         case "PG": {
             Point.innerHTML = "";
