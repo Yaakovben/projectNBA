@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column; 
+    gap: 8px;
+}
+
+.title1{
+    width: 100%;
+    background-color: blue;
+    height: 4vh;
+    color:white;
+}
+#title1{
+    text-align: center;
+}
+
+
+#Point,#Shooting,#Small,#Power,#Center{
+    height: 200px;
+    width: 200px;
+    background-color:rgb(201, 192, 192);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.cubs{
+    display: flex;
+    padding: 8px;
+    gap: 9px;
+    margin-left: 15%;
+    
+}
+
+.textIncube{
+   text-align: center;
+}
+
+.centerPage{
+    
+    text-align: center;
+}
+
+#title2{
+    color: blue;
+}
+
+#title3{
+    text-align: center;
+    color: blue;
+}
+
+
+.bottmPage{ 
+    align-items: center; 
+    height: 50vh;
+    background-color:rgb(201, 192, 192);
+    width: 70%;
+    margin-left: 15%;  
+}
+
+
+.selectionOption{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.select{
+    width: 400px;
+    border-radius: 5px;
+}
+.Search{
+    height: 40px;
+    width: 150px;
+    color: white;
+    background-color: blue;
+}
+
+.Table{
+    margin-top: 8px;
+    width: 80%;
+    text-align: center;
+    border: 1px solid white; 
+    margin-left: 10%;
+}
+
+
+.head{
+    border: 1px solid white; 
+    height: 30px;
+    background-color: rgb(230, 72, 72);
+
+}
+
+.prm{
+    border: 1px solid white; 
+
+}
